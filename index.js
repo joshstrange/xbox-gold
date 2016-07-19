@@ -38,8 +38,8 @@ rp(options).then(function($) {
 	
 	games.forEach(function(game) {
 		let now = moment();
-		let inFirstTwoDays = now.isAfter(game.startDate) && now.isBefore(game.startDate.clone().add(2, 'days'));
-		let inLastTwoDays = now.isAfter(game.endDate.clone().subtract(2, 'days')) && now.isBefore(game.endDate);
+		let inFirstTwoDays = now.isAfter(game.startDate) && now.isBefore(game.startDate.clone().add(config.alert.daysAfterAvailable, 'days'));
+		let inLastTwoDays = now.isAfter(game.endDate.clone().subtract(config.alert.daysBeforeUnavailable, 'days')) && now.isBefore(game.endDate);
 
 		if(game.url && (inFirstTwoDays || inLastTwoDays)) {
 			console.log('Sending notification for: ' + game.name);
