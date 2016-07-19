@@ -4,6 +4,8 @@ let cheerio = require('cheerio');
 let moment = require('moment');
 let push = require( 'pushover-notifications' );
 
+console.log("Running at: "+moment().format('YYYY/MM/DD HH:mm:ss'));
+
 let options = {
 	uri: 'http://www.xbox.com/en-US/live/games-with-gold',
 	transform: function (body) {
@@ -35,7 +37,9 @@ rp(options).then(function($) {
 			endDate: moment(dates[1] + '/' + moment().year(), 'MM/DD/YYYY')
 		});
 	});
-	
+
+	console.log('Found ' + games.length + ' games');
+
 	games.forEach(function(game) {
 		let now = moment();
 		let inFirstTwoDays = now.isAfter(game.startDate) && now.isBefore(game.startDate.clone().add(config.alert.daysAfterAvailable, 'days'));
@@ -54,6 +58,8 @@ rp(options).then(function($) {
 				}
 				console.log( result );
 			});
+		} else {
+			console.log(game.name + ' did not meet the requirements for notification');
 		}
 	});
 });
