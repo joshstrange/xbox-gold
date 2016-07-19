@@ -1,0 +1,31 @@
+{
+  "name": "xbox-gold",
+  "version": "1.0.0",
+  "description": "Send notifications when new games are available",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshstrange/xbox-gold.git"
+  },
+  "keywords": [
+    "xbox",
+    "gold",
+    "pushover"
+  ],
+  "author": "Josh Strange",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshstrange/xbox-gold/issues"
+  },
+  "homepage": "https://github.com/joshstrange/xbox-gold#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "moment": "^2.14.1",
+    "pushover-notifications": "^0.2.3",
+    "request": "^2.73.0",
+    "request-promise": "^4.0.2"
+  }
+}
