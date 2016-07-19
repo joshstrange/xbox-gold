@@ -4,6 +4,8 @@ Check for new Xbox Gold games
 
 ## How to use
 ````
+git clone https://github.com/joshstrange/xbox-gold.git
+cd xbox-gold
 npm install
 cp config.sample.js config.js
 $EDITOR config.js
